@@ -4,17 +4,17 @@
 
     <sitemap>
         <loc>http://dev4us.github.io/post-sitemap.xml</loc>
-        <lastmod>2019-09-12T13:40:36.832Z</lastmod>
+        <lastmod>2019-12-04T15:56:01.361Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://dev4us.github.io/category-sitemap.xml</loc>
-        
+        <lastmod>2019-12-04T15:56:01.361Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://dev4us.github.io/tag-sitemap.xml</loc>
-        
+        <lastmod>2019-12-04T15:56:01.361Z</lastmod>
     </sitemap>
 
 </sitemapindex>

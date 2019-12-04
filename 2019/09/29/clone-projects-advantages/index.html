@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html  lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="canonical" href="http://dev4us.github.io/2019/09/29/clone-projects-advantages/"/>
+<title>클론 프로젝트가 가진 장점에 대해서 - 일상다반사</title>
+
+
+    <meta name="description" content="(당신이 사이드 프로젝트를 시작해야 하는 이유 에서 이어지는 시리즈) 지난 포스트에서 예고했듯, 이번 포스트에서는 사이드 프로젝트를 시작하려고 하는 분들에게 도움이 될만한 주제인 클론 프로젝트에 대해 소개해보려 한다.">
+<meta name="keywords" content="side project,portfolio,development,toy project,사이드프로젝트,토이프로젝트,클론 프로젝트,clone project">
+<meta property="og:type" content="article">
+<meta property="og:title" content="클론 프로젝트가 가진 장점에 대해서">
+<meta property="og:url" content="http://dev4us.github.io/2019/09/29/clone-projects-advantages/index.html">
+<meta property="og:site_name" content="일상다반사">
+<meta property="og:description" content="(당신이 사이드 프로젝트를 시작해야 하는 이유 에서 이어지는 시리즈) 지난 포스트에서 예고했듯, 이번 포스트에서는 사이드 프로젝트를 시작하려고 하는 분들에게 도움이 될만한 주제인 클론 프로젝트에 대해 소개해보려 한다.">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://dev4us.github.io/2019/09/29/clone-projects-advantages/thumbnail.png">
+<meta property="og:updated_time" content="2019-12-04T13:51:49.945Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="클론 프로젝트가 가진 장점에 대해서">
+<meta name="twitter:description" content="(당신이 사이드 프로젝트를 시작해야 하는 이유 에서 이어지는 시리즈) 지난 포스트에서 예고했듯, 이번 포스트에서는 사이드 프로젝트를 시작하려고 하는 분들에게 도움이 될만한 주제인 클론 프로젝트에 대해 소개해보려 한다.">
+<meta name="twitter:image" content="http://dev4us.github.io/2019/09/29/clone-projects-advantages/thumbnail.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124254721-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124254721-3');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/blog_logo.jpg" alt="클론 프로젝트가 가진 장점에 대해서" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/dev4us">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/2019/09/29/clone-projects-advantages/thumbnail.png" alt="클론 프로젝트가 가진 장점에 대해서">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-09-28T16:04:58.000Z">2019-09-29</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Essay/">Essay</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    10분 소요 예정 (포스트 내 1550 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <innerTitle class="innerTitle">클론 프로젝트가 가진 장점에 대해서</innerTitle>
+            
+        </h1>
+        <div class="content">
+            <p><small>(<a href="/2019/09/18/a-reason-to-do-side-project/" title="당신이 사이드 프로젝트를 시작해야 하는 이유">당신이 사이드 프로젝트를 시작해야 하는 이유</a> 에서 이어지는 시리즈)</small></p>
+<p>지난 포스트에서 예고했듯, 이번 포스트에서는 <code>사이드 프로젝트</code>를 시작하려고 하는 분들에게 도움이 될만한 주제인 <code>클론 프로젝트</code>에 대해 소개해보려 한다.</p>
+<a id="more"></a>
+
+<h2 id="창작의-고통"><a href="#창작의-고통" class="headerlink" title="창작의 고통"></a>창작의 고통</h2><p>사이드 프로젝트를 시작하기로 마음 먹었다면 실행에 옮기기 전 제일 먼저 필요한 단계는 무엇일까?</p>
+<p>아마 <code>어떤 서비스를 개발할지 고민하고 선정하는 과정</code>일 것이다.</p>
+<p>개발자라면 누구나 ‘참신한 아이디어’, ‘많은 유저들이 유익하게 이용할 서비스’ 개발을 꿈꿀 것이다.</p>
+<p>하지만 <code>아이디어를 구상하는 과정에는 꽤 많은 시간이 소요되며, 단순히 학습이 목적인 개발자들에게는 하나의 스트레스 요소</code>로 자리 잡을 수 있다.</p>
+<p>또한 피로함과 지연되는 개발 시작 시점에 지쳐 사이드 프로젝트를 시작하고 싶던 <code>욕구</code>마저 사라질 수 있다.</p>
+<p>그럼 어떻게 사이드 프로젝트를 바로 시작할 수 있을까?</p>
+<h2 id="클론-프로젝트가-갖고-있는-장점"><a href="#클론-프로젝트가-갖고-있는-장점" class="headerlink" title="클론 프로젝트가 갖고 있는 장점"></a>클론 프로젝트가 갖고 있는 장점</h2><p>필자 또한 위와 같은 내용으로 꽤 오래 고민을 하였고 가장 쉽게 접근할 수 있는 방법이라고 결론을 내린 것은 <code>클론 프로젝트</code>였다.</p>
+<p>그럼 <code>클론 프로젝트</code>란 무엇일까?</p>
+<p><code>클론 프로젝트</code>란 <code>이미 개발되어 있는 서비스를 주제 삼아 서비스의 기존 스택이나 새로운 스택을 적용하여 나만의 서비스로 복제하듯 개발해보는 것</code>을 말한다.</p>
+<p>예를 들면, 이미 ‘카카오톡’ 서비스가 존재하지만 해당 서비스를 나만의 스택으로 ‘카카오톡’의 전체 또는 일부분의 기능만을 다시 개발해본다는 뜻이다.</p>
+<p>이러한 <code>클론 행위</code>에는 어떤 장점이 있을까? 아래에 필자가 생각하는 <code>클론 프로젝트의 장점</code>을 적어보았다.</p>
+<h3 id="개발에만-집중할-수-있다"><a href="#개발에만-집중할-수-있다" class="headerlink" title="개발에만 집중할 수 있다"></a>개발에만 집중할 수 있다</h3><p>하나의 서비스가 개발될 때 필요한 포지션은 개발자 뿐만이 아니다.</p>
+<p>기획자, 디자이너, 프론트엔드 개발자, 백엔드 개발자 등등 다양한 포지션이 협업하여 하나의 서비스가 만들어지기 때문에 홀로 사이드 프로젝트를 진행하는 개발자라면 <code>다른 포지션의 부재</code>를 느낄 수 있고, 부담감 또한 느낄 수도 있다.</p>
+<p>허나 <code>클론 프로젝트</code>에서는 이미 운영 중인 서비스를 클론하는 것이므로 <code>기획 단계</code>는 기존 서비스의 컨셉을 빌릴 수 있으며 <code>디자인 단계</code> 또한 기존의 서비스의 UI, 리소스를 이용하는 방식으로 본인이 학습하고자 하는 내용만을 다뤄볼 수 있다.</p>
+<p>이렇게 <code>클론 프로젝트</code>는 개발자가 <code>온전히 개발자의 역할</code>만을 할 수 있게끔 도와준다.</p>
+<h3 id="보다-쉬운-경험-어필"><a href="#보다-쉬운-경험-어필" class="headerlink" title="보다 쉬운 경험 어필"></a>보다 쉬운 경험 어필</h3><p>다른 이에게 진행하였던 사이드 프로젝트에 대해 설명해야 할 경우가 있다면 내가 직접 개발한 서비스보다 클론한 프로젝트를 설명하는 것이 조금 더 수월할 것이다.</p>
+<p><code>&quot;저는 Node를 기반으로 한 OO 서비스를 만들어보았으며 계정 관리, 실시간 채팅, 인맥 관리 등의 메신저를 개발해보았습니다.&quot;</code> 보다는 <code>&quot;저는 Node를 기반으로 작은 규모의 카카오톡을 개발해본 경험이 있습니다.&quot;</code>가 듣는 입장에서는 프로젝트 내용을 쉽게 이해할 수 있다.</p>
+<p>개발할 때 기존 서비스의 내용을 기준으로 생각하며 개발하듯 듣는 입장에서도 기존 서비스의 내용을 먼저 떠올리기 때문이다.</p>
+<h2 id="클론-프로젝트-팁-amp-노하우"><a href="#클론-프로젝트-팁-amp-노하우" class="headerlink" title="클론 프로젝트 팁 &amp; 노하우"></a>클론 프로젝트 팁 &amp; 노하우</h2><h3 id="익숙한-서비스를-선택하자"><a href="#익숙한-서비스를-선택하자" class="headerlink" title="익숙한 서비스를 선택하자"></a>익숙한 서비스를 선택하자</h3><p>클론할 프로젝트를 선정할 때에는 <code>내가 익숙한 서비스</code>를 선정하는 것이 중요하다.</p>
+<p>기획, 디자인 등 타 포지션의 역할에 대한 부담감은 줄어들지만 서비스 내 각 UI의 기능, 목적을 전혀 알지 못한다면 기능에 대한 분석으로 시간을 소요하거나 헤메는 경우가 생길 수 있다.</p>
+<p>이와 같이 기능을 구현하는 데 혼란을 겪거나 추가적인 시간을 소모하고 싶지 않다면 익숙하거나 평소에 관심이 있어 자주 둘러보았던 서비스를 선택하는 것이 좋다.</p>
+<h3 id="압박감을-느낄-필요-없다"><a href="#압박감을-느낄-필요-없다" class="headerlink" title="압박감을 느낄 필요 없다"></a>압박감을 느낄 필요 없다</h3><p>사이드 프로젝트에 대한 포스트를 작성할 때 비슷한 맥락으로 작성한 바 있지만 마찬가지로 클론 프로젝트를 진행할 때에도 <code>서비스 내 모든 기능을 구현</code> 하기 위해 매달릴 필요가 전혀 없다.</p>
+<p>본인이 개발해보고 싶은 특정 기능이 있다면 서비스 내 해당 부분만을 개발해보며 학습하여도 전혀 상관없다는 뜻이다.</p>
+<p>사이드 프로젝트는 언제나 부담감을 느끼지 않는 선에서 진행하는 것이 좋다.</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>지금까지 클론 프로젝트에 대한 내용을 작성해보았다.</p>
+<p>클론 프로젝트가 본인에게 맞는 스타일이라고 생각된다면 지금 바로 시작해보자.</p>
+<p>클론 프로젝트를 마치고 서비스 개발자를 만나볼 기회가 생긴다면 구현에 있어 어려웠던 부분이나 개선점에 대해 논해볼 좋은 기회가 올 수도 있지 않을까?</p>
+<p>필자는 생각한다.</p>
+<p>끝</p>
+
+        </div>
+        
+            <div class="level is-size-7 is-uppercase post-tags">
+                <div class="level-start">
+                    <div class="tags">
+                        <span class="is-size-6 has-text-grey has-mr-7 tag-icon"><i class="fas fa-tag"></i></span>
+                        <a class="tag -link" href="/tags/clone-project/">clone project</a><a class="tag -link" href="/tags/development/">development</a><a class="tag -link" href="/tags/portfolio/">portfolio</a><a class="tag -link" href="/tags/side-project/">side project</a><a class="tag -link" href="/tags/toy-project/">toy project</a><a class="tag -link" href="/tags/사이드프로젝트/">사이드프로젝트</a><a class="tag -link" href="/tags/클론-프로젝트/">클론 프로젝트</a><a class="tag -link" href="/tags/토이프로젝트/">토이프로젝트</a>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/21/browser-rendering/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">브라우저의 렌더링 과정 살펴보기</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/22/http-and-https/">
+                <span class="level-item">http와 https는 어떤 차이가 있을까?</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카탈로그
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#창작의-고통">
+        <span class="has-mr-6">1</span>
+        <span>창작의 고통</span>
+        </a></li><li>
+        <a class="is-flex" href="#클론-프로젝트가-갖고-있는-장점">
+        <span class="has-mr-6">2</span>
+        <span>클론 프로젝트가 갖고 있는 장점</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#개발에만-집중할-수-있다">
+        <span class="has-mr-6">2.1</span>
+        <span>개발에만 집중할 수 있다</span>
+        </a></li><li>
+        <a class="is-flex" href="#보다-쉬운-경험-어필">
+        <span class="has-mr-6">2.2</span>
+        <span>보다 쉬운 경험 어필</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#클론-프로젝트-팁-amp-노하우">
+        <span class="has-mr-6">3</span>
+        <span>클론 프로젝트 팁 &amp; 노하우</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#익숙한-서비스를-선택하자">
+        <span class="has-mr-6">3.1</span>
+        <span>익숙한 서비스를 선택하자</span>
+        </a></li><li>
+        <a class="is-flex" href="#압박감을-느낄-필요-없다">
+        <span class="has-mr-6">3.2</span>
+        <span>압박감을 느낄 필요 없다</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#마무리">
+        <span class="has-mr-6">4</span>
+        <span>마무리</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Essay/">
+            <span class="level-start">
+                <span class="level-item">Essay</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Life/">
+            <span class="level-start">
+                <span class="level-item">Life</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Programming/">
+            <span class="level-start">
+                <span class="level-item">Programming</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Programming/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/blog_logo.jpg" alt="클론 프로젝트가 가진 장점에 대해서" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 dev4us&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/dev4us">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+    <!-- Google AdSense start -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3958546905118416",
+          enable_page_level_ads: true
+     });
+</script>
+    <!-- Google AdSense end -->
+
+</body>
+</html>
