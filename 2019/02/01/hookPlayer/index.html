@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html  lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="canonical" href="http://dev4us.github.io/2019/02/01/hookplayer/"/>
+<title>Welcome Hook, HookPlayer - 일상다반사</title>
+
+
+    <meta name="description" content="(이전 블로그에서 포워딩해온 포스트) 드디어 기다리던 Hooks이 React에 정식 기능으로 탑재되었다. 여러가지 Hooks을 직접 사용해보기 위해서 hookPlayer라는 작은 사이드 프로젝트를 진행해보았다. Youtube URL 또는 Video id를 입력하여 자신만의 플레이 리스트를 관리하고 이를 로컬 스토리지에 기록함으로써 유지되도록 개발하였다. 이">
+<meta name="keywords" content="side project,toy project,Hook player,React hooks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Welcome Hook, HookPlayer">
+<meta property="og:url" content="http://dev4us.github.io/2019/02/01/hookPlayer/index.html">
+<meta property="og:site_name" content="일상다반사">
+<meta property="og:description" content="(이전 블로그에서 포워딩해온 포스트) 드디어 기다리던 Hooks이 React에 정식 기능으로 탑재되었다. 여러가지 Hooks을 직접 사용해보기 위해서 hookPlayer라는 작은 사이드 프로젝트를 진행해보았다. Youtube URL 또는 Video id를 입력하여 자신만의 플레이 리스트를 관리하고 이를 로컬 스토리지에 기록함으로써 유지되도록 개발하였다. 이">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://dev4us.github.io/2019/02/01/hookPlayer/thumbnail.png">
+<meta property="og:updated_time" content="2020-02-15T13:25:31.613Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Welcome Hook, HookPlayer">
+<meta name="twitter:description" content="(이전 블로그에서 포워딩해온 포스트) 드디어 기다리던 Hooks이 React에 정식 기능으로 탑재되었다. 여러가지 Hooks을 직접 사용해보기 위해서 hookPlayer라는 작은 사이드 프로젝트를 진행해보았다. Youtube URL 또는 Video id를 입력하여 자신만의 플레이 리스트를 관리하고 이를 로컬 스토리지에 기록함으로써 유지되도록 개발하였다. 이">
+<meta name="twitter:image" content="http://dev4us.github.io/2019/02/01/hookPlayer/thumbnail.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124254721-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124254721-3');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/blog_logo.png" alt="Welcome Hook, HookPlayer" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/dev4us">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/2019/02/01/hookPlayer/thumbnail.png" alt="Welcome Hook, HookPlayer">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-02-01T12:10:25.000Z">2019-02-01</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Programming/">Programming</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Programming/Toy-Project/">Toy Project</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6분 소요 예정 (포스트 내 892 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <innerTitle class="innerTitle">Welcome Hook, HookPlayer</innerTitle>
+            
+        </h1>
+        <div class="content">
+            <p><small>(이전 블로그에서 포워딩해온 포스트)</small></p>
+<p>드디어 기다리던 Hooks이 React에 정식 기능으로 탑재되었다.</p>
+<p>여러가지 Hooks을 직접 사용해보기 위해서 <code>hookPlayer</code>라는 작은 사이드 프로젝트를 진행해보았다.</p>
+<p><code>Youtube URL</code> 또는 <code>Video id</code>를 입력하여 자신만의 플레이 리스트를 관리하고 이를 로컬 스토리지에 기록함으로써 유지되도록 개발하였다.</p>
+<p>이제 막 출시한 Hooks에 대해 경험해보고 싶은 욕심에 진행해본 프로젝트였기에 <code>&#39;올바르게 사용했다&#39;</code>라고는 말하기는 쉽지 않지만</p>
+<p>Hooks을 이해하는 데에 큰 도움이 된 것은 확실하다.</p>
+<a id="more"></a>
+
+<br>
+<center>
+  <img src="/2019/02/01/hookPlayer/sample.gif">
+  <small>(동작하고 있는 hookPlayer)</small>
+</center>
+<br>
+
+<p>Repo: <a href="https://github.com/dev4us/hook-player" target="_blank" rel="noopener">https://github.com/dev4us/hook-player</a></p>
+<!-- more -->
+
+<h2 id="프로젝트-선정-amp-인터뷰"><a href="#프로젝트-선정-amp-인터뷰" class="headerlink" title="프로젝트 선정 &amp; 인터뷰"></a>프로젝트 선정 &amp; 인터뷰</h2><br>
+  <center>
+    <img src="/2019/02/01/hookPlayer/indiemakers.net_review_hookplayer.png">
+    <small>(indie makers에 게시된 내용)</small>
+  </center>
+<br>
+
+<p>해당 프로젝트를 개발하고 난 후 토이 프로젝트들을 소개하는 <code>indie makers</code> 에 해당 프로젝트가 소개되었으며, 가벼운 인터뷰 같은 내용 또한 게시되는 좋은 경험도 하였다.</p>
+<p>Publish URL: <a href="https://indiemakers.net/review/hookplayer" target="_blank" rel="noopener">https://indiemakers.net/review/hookplayer</a><br>Archive URL: <a href="https://archive.is/4HLRj" target="_blank" rel="noopener">https://archive.is/4HLRj</a></p>
+<h2 id="인터뷰-내용"><a href="#인터뷰-내용" class="headerlink" title="인터뷰 내용"></a>인터뷰 내용</h2><h3 id="자기소개"><a href="#자기소개" class="headerlink" title="자기소개"></a>자기소개</h3><p>안녕하세요? 풀 스택 개발자를 지향하고 있는 dev4us 입니다. 노마드 코더에서 주로 공부를 하고 있습니다.</p>
+<h3 id="어떤-서비스인지-설명해주세요"><a href="#어떤-서비스인지-설명해주세요" class="headerlink" title="어떤 서비스인지 설명해주세요"></a>어떤 서비스인지 설명해주세요</h3><p>본인이 좋아하는 유튜브 링크로 자신만의 플레이 리스트를 만들고, 데스크탑, 모바일 어느 환경에서든 사용할 수 있습니다.</p>
+<h3 id="왜-시작하게-되었나요"><a href="#왜-시작하게-되었나요" class="headerlink" title="왜 시작하게 되었나요?"></a>왜 시작하게 되었나요?</h3><p>주로 음악을 들을때 Headset 이라는 앱을 주로 사용하는데요. 모바일에서는 지원하지 않고, 리소스를 많이 잡아먹는다는 단점이 있어 개발해보았습니다. 무엇보다 해당 앱의 컨셉에 크게 매력을 느꼈구요</p>
+<h3 id="어떻게-빌드하셨나요-언어"><a href="#어떻게-빌드하셨나요-언어" class="headerlink" title="어떻게 빌드하셨나요? (언어)"></a>어떻게 빌드하셨나요? (언어)</h3><p>Only Frontend! React Hook 과 LocalStorage의 조합입니다.</p>
+<h3 id="앞으로-바라는-바는"><a href="#앞으로-바라는-바는" class="headerlink" title="앞으로 바라는 바는"></a>앞으로 바라는 바는</h3><p>사실 React hook이 정식 릴리즈되어 한번 공부해보자..하는 느낌으로 진행을 해본 것인데요. 생각보다 반응이 너무 좋아 당황했습니다. 처음 배포해본 서비스 이기도 하지만 ‘Link를 직접 넣지말고 검색을 하도록 해보자(니꼴라스 선생님 의견), 계정 개념을 추가하여 어디서든 플레이 리스트를 공유하게 해달라’ 등등 개인적인 메신저, 메일로 많은 요청을 보내주셨더라구요. 현재 유튜브 개발자 지원 사이트에 정식 개발을 진행해도 되는지 문의를 해놓은 상태입니다. 너무 라이트(공부용^^;) 하게 개발하였기에 리소스 낭비가 심하고 사용자가 사용하기에 불편한 UI 등 문제점이 많습니다. 만약 승인 메일이 온다면, 제대로 서비스하여 큰 관심에 보답할 생각입니다.</p>
+<h3 id="기타"><a href="#기타" class="headerlink" title="기타"></a>기타</h3><p>해당 소스는 <a href="https://github.com/dev4us/hook-player" target="_blank" rel="noopener">https://github.com/dev4us/hook-player</a> 에서 확인할 수 있습니다. 좋은 소스는 아니지만 도움이 되신다면 언제든지 뜯어보셔도 좋습니다. Happy Coding! : )</p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>결국 유튜브로부터 서비스를 해도 좋다는 답변을 받지 못했다고 한다.</p>
+<p>끝</p>
+
+        </div>
+        
+            <div class="level is-size-7 is-uppercase post-tags">
+                <div class="level-start">
+                    <div class="tags">
+                        <span class="is-size-6 has-text-grey has-mr-7 tag-icon"><i class="fas fa-tag"></i></span>
+                        <a class="tag -link" href="/tags/Hook-player/">Hook player</a><a class="tag -link" href="/tags/React-hooks/">React hooks</a><a class="tag -link" href="/tags/side-project/">side project</a><a class="tag -link" href="/tags/toy-project/">toy project</a>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/13/why-did-i-move/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">내가 블로그를 이전한 이유</span>
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카탈로그
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#프로젝트-선정-amp-인터뷰">
+        <span class="has-mr-6">1</span>
+        <span>프로젝트 선정 &amp; 인터뷰</span>
+        </a></li><li>
+        <a class="is-flex" href="#인터뷰-내용">
+        <span class="has-mr-6">2</span>
+        <span>인터뷰 내용</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#자기소개">
+        <span class="has-mr-6">2.1</span>
+        <span>자기소개</span>
+        </a></li><li>
+        <a class="is-flex" href="#어떤-서비스인지-설명해주세요">
+        <span class="has-mr-6">2.2</span>
+        <span>어떤 서비스인지 설명해주세요</span>
+        </a></li><li>
+        <a class="is-flex" href="#왜-시작하게-되었나요">
+        <span class="has-mr-6">2.3</span>
+        <span>왜 시작하게 되었나요?</span>
+        </a></li><li>
+        <a class="is-flex" href="#어떻게-빌드하셨나요-언어">
+        <span class="has-mr-6">2.4</span>
+        <span>어떻게 빌드하셨나요? (언어)</span>
+        </a></li><li>
+        <a class="is-flex" href="#앞으로-바라는-바는">
+        <span class="has-mr-6">2.5</span>
+        <span>앞으로 바라는 바는</span>
+        </a></li><li>
+        <a class="is-flex" href="#기타">
+        <span class="has-mr-6">2.6</span>
+        <span>기타</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#마무리">
+        <span class="has-mr-6">3</span>
+        <span>마무리</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Essay/">
+            <span class="level-start">
+                <span class="level-item">Essay</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Life/">
+            <span class="level-start">
+                <span class="level-item">Life</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Programming/">
+            <span class="level-start">
+                <span class="level-item">Programming</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Programming/Data-Structure/">
+            <span class="level-start">
+                <span class="level-item">Data Structure</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Programming/Toy-Project/">
+            <span class="level-start">
+                <span class="level-item">Toy Project</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Programming/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/blog_logo.png" alt="Welcome Hook, HookPlayer" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 dev4us&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/dev4us">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+    <!-- Google AdSense start -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3958546905118416",
+          enable_page_level_ads: true
+     });
+</script>
+    <!-- Google AdSense end -->
+
+</body>
+</html>
