@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<link rel="canonical" href="http://dev4us.github.io/2020/02/13/sideproject-devlive/"/>
+<link rel="canonical" href="http://dev4us.github.io/2020/02/15/sideproject-devlive/"/>
 <title>Realtime Streming Service, devLive - 일상다반사</title>
 
 
@@ -15,16 +15,16 @@
 <meta name="keywords" content="side project,toy project,React,Realtime Streaming,node,Graphql,Fullstack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Realtime Streming Service, devLive">
-<meta property="og:url" content="http://dev4us.github.io/2020/02/13/sideproject-devlive/index.html">
+<meta property="og:url" content="http://dev4us.github.io/2020/02/15/sideproject-devlive/index.html">
 <meta property="og:site_name" content="일상다반사">
 <meta property="og:description" content="이번 포스트에서는 작년 말부터 꾸준히 개발해온 토이 프로젝트에 대한 소개와 그 원리 및 구조에 대해 설명하는 내용을 적어볼까 한다. 실시간 스트리밍 서비스는 요즘 세대에 아주 친근한 서비스로써 ‘Youtube Live’, ‘Twitch’, ‘AfreecaTV’ 등이 있다. 필자 또한 이런 인터넷 방송을 즐겨보는 편인데, 비동기 방식 처리에 훌륭한 노드를 이">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="http://dev4us.github.io/2020/02/13/sideproject-devlive/thumbnail.png">
-<meta property="og:updated_time" content="2020-02-15T12:09:04.343Z">
+<meta property="og:image" content="http://dev4us.github.io/2020/02/15/sideproject-devlive/thumbnail.png">
+<meta property="og:updated_time" content="2020-02-15T12:10:14.437Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Realtime Streming Service, devLive">
 <meta name="twitter:description" content="이번 포스트에서는 작년 말부터 꾸준히 개발해온 토이 프로젝트에 대한 소개와 그 원리 및 구조에 대해 설명하는 내용을 적어볼까 한다. 실시간 스트리밍 서비스는 요즘 세대에 아주 친근한 서비스로써 ‘Youtube Live’, ‘Twitch’, ‘AfreecaTV’ 등이 있다. 필자 또한 이런 인터넷 방송을 즐겨보는 편인데, 비동기 방식 처리에 훌륭한 노드를 이">
-<meta name="twitter:image" content="http://dev4us.github.io/2020/02/13/sideproject-devlive/thumbnail.png">
+<meta name="twitter:image" content="http://dev4us.github.io/2020/02/15/sideproject-devlive/thumbnail.png">
 
 
 
@@ -161,7 +161,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/2020/02/13/sideproject-devlive/thumbnail.png" alt="Realtime Streming Service, devLive">
+            <img class="thumbnail" src="/2020/02/15/sideproject-devlive/thumbnail.png" alt="Realtime Streming Service, devLive">
         </span>
     </div>
     
@@ -169,7 +169,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-12T15:58:25.000Z">2020-02-13</time>
+                <time class="level-item has-text-grey" datetime="2020-02-15T12:10:25.000Z">2020-02-15</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Programming/">Programming</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Programming/Toy-Project/">Toy Project</a>
@@ -201,7 +201,7 @@
 <p>개발하고자 하는 서비스와 같은 특성을 가진 서비스에 적용되고 있는 개념과 기술에 대한 이해도가 필요하다는 의미로 필자는 방송(Broadcast)에 대한 개념을 전혀 모르고 있었기에 <code>실시간 스트리밍 서비스</code>의 구조나 동작 원리와 같은 기초 단계부터 학습이 필요했다.</p>
 <br>
 <center>
-  <img src="/2020/02/13/sideproject-devlive/Streaming-Formats-Currently-Used_Q8.png">
+  <img src="/2020/02/15/sideproject-devlive/Streaming-Formats-Currently-Used_Q8.png">
   <small>(실시간 스트리밍 서비스에 사용되고 있는 프로토콜 점유율, wowza.com)</small>
 </center>
 <br>
@@ -212,7 +212,7 @@
 <h2 id="HLS-HTTP-Live-Streaming-동작-원리"><a href="#HLS-HTTP-Live-Streaming-동작-원리" class="headerlink" title="HLS(HTTP Live Streaming) 동작 원리"></a>HLS(HTTP Live Streaming) 동작 원리</h2><br>
   <center>
     <div style="width:80%">
-      <img src="/2020/02/13/sideproject-devlive/HLS-Streaming-Workflow.png">
+      <img src="/2020/02/15/sideproject-devlive/HLS-Streaming-Workflow.png">
       <small>(이진 탐색 트리의 예)</small>
     </div>
   </center>
@@ -224,7 +224,7 @@
 <p>이후 시청자의 클라이언트는 영상 파일들과 영상 리스트를 서버로부터 내려받아 시청자에게 순차적으로 재생시켜줌으로써 <code>이어지는 영상</code>으로 방송을 볼 수 있는 것이다.</p>
 <br>
   <center>
-    <img src="/2020/02/13/sideproject-devlive/what-is-lhls.png">
+    <img src="/2020/02/15/sideproject-devlive/what-is-lhls.png">
     <small>(theoplayer.com)</small>
   </center>
 <br>
