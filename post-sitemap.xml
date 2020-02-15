@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>http://dev4us.github.io/2020/02/13/sideproject-devlive/</loc>
+        <lastmod>2020-02-15T12:09:04.343Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dev4us.github.io/2020/01/19/how-to-do-a-code-review/</loc>
+        <lastmod>2020-02-15T11:35:52.484Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://dev4us.github.io/2019/12/14/binary-search-tree/</loc>
+        <lastmod>2020-02-15T11:35:52.476Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://dev4us.github.io/2019/12/05/handle-traffic-jam/</loc>
         <lastmod>2019-12-04T15:58:44.292Z</lastmod>
         <changefreq>weekly</changefreq>

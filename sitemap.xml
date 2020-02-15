@@ -4,17 +4,22 @@
 
     <sitemap>
         <loc>http://dev4us.github.io/post-sitemap.xml</loc>
-        <lastmod>2019-12-04T15:58:44.292Z</lastmod>
+        <lastmod>2020-02-15T12:09:04.343Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>http://dev4us.github.io/page-sitemap.xml</loc>
+        <lastmod>2020-02-15T11:35:52.493Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://dev4us.github.io/category-sitemap.xml</loc>
-        <lastmod>2019-12-04T15:58:44.292Z</lastmod>
+        <lastmod>2020-02-15T12:09:04.343Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>http://dev4us.github.io/tag-sitemap.xml</loc>
-        <lastmod>2019-12-04T15:58:44.292Z</lastmod>
+        <lastmod>2020-02-15T12:09:04.343Z</lastmod>
     </sitemap>
 
 </sitemapindex>

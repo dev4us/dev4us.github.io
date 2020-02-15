@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html  lang="ko">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 3.9.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="canonical" href="http://dev4us.github.io/2020/02/13/sideproject-devlive/"/>
+<title>Realtime Streming Service, devLive - 일상다반사</title>
+
+
+    <meta name="description" content="이번 포스트에서는 작년 말부터 꾸준히 개발해온 토이 프로젝트에 대한 소개와 그 원리 및 구조에 대해 설명하는 내용을 적어볼까 한다. 실시간 스트리밍 서비스는 요즘 세대에 아주 친근한 서비스로써 ‘Youtube Live’, ‘Twitch’, ‘AfreecaTV’ 등이 있다. 필자 또한 이런 인터넷 방송을 즐겨보는 편인데, 비동기 방식 처리에 훌륭한 노드를 이">
+<meta name="keywords" content="side project,toy project,React,Realtime Streaming,node,Graphql,Fullstack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Realtime Streming Service, devLive">
+<meta property="og:url" content="http://dev4us.github.io/2020/02/13/sideproject-devlive/index.html">
+<meta property="og:site_name" content="일상다반사">
+<meta property="og:description" content="이번 포스트에서는 작년 말부터 꾸준히 개발해온 토이 프로젝트에 대한 소개와 그 원리 및 구조에 대해 설명하는 내용을 적어볼까 한다. 실시간 스트리밍 서비스는 요즘 세대에 아주 친근한 서비스로써 ‘Youtube Live’, ‘Twitch’, ‘AfreecaTV’ 등이 있다. 필자 또한 이런 인터넷 방송을 즐겨보는 편인데, 비동기 방식 처리에 훌륭한 노드를 이">
+<meta property="og:locale" content="ko">
+<meta property="og:image" content="http://dev4us.github.io/2020/02/13/sideproject-devlive/thumbnail.png">
+<meta property="og:updated_time" content="2020-02-15T12:09:04.343Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Realtime Streming Service, devLive">
+<meta name="twitter:description" content="이번 포스트에서는 작년 말부터 꾸준히 개발해온 토이 프로젝트에 대한 소개와 그 원리 및 구조에 대해 설명하는 내용을 적어볼까 한다. 실시간 스트리밍 서비스는 요즘 세대에 아주 친근한 서비스로써 ‘Youtube Live’, ‘Twitch’, ‘AfreecaTV’ 등이 있다. 필자 또한 이런 인터넷 방송을 즐겨보는 편인데, 비동기 방식 처리에 훌륭한 노드를 이">
+<meta name="twitter:image" content="http://dev4us.github.io/2020/02/13/sideproject-devlive/thumbnail.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.png">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-124254721-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-124254721-3');
+</script>
+
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-2-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/blog_logo2.png" alt="Realtime Streming Service, devLive" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/dev4us">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="카탈로그" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="검색" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/2020/02/13/sideproject-devlive/thumbnail.png" alt="Realtime Streming Service, devLive">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-02-12T15:58:25.000Z">2020-02-13</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Programming/">Programming</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Programming/Toy-Project/">Toy Project</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8분 소요 예정 (포스트 내 1222 단어)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <innerTitle class="innerTitle">Realtime Streming Service, devLive</innerTitle>
+            
+        </h1>
+        <div class="content">
+            <p>이번 포스트에서는 작년 말부터 꾸준히 개발해온 토이 프로젝트에 대한 소개와 그 원리 및 구조에 대해 설명하는 내용을 적어볼까 한다.</p>
+<p><code>실시간 스트리밍 서비스</code>는 요즘 세대에 아주 친근한 서비스로써 ‘Youtube Live’, ‘Twitch’, ‘AfreecaTV’ 등이 있다.</p>
+<p>필자 또한 이런 인터넷 방송을 즐겨보는 편인데, <code>비동기 방식 처리에 훌륭한 노드를 이용하여 직접 개발해보면 어떨까?</code> 라는 아주 작은 생각으로부터 개발은 시작되었다.</p>
+<a id="more"></a>
+
+<h2 id="소재-파악"><a href="#소재-파악" class="headerlink" title="소재 파악"></a>소재 파악</h2><p>특정 서비스를 개발하기 위해서는 그 서비스의 특성에 대해 잘 살펴보고 조사하는 과정이 필요하다.</p>
+<p>개발하고자 하는 서비스와 같은 특성을 가진 서비스에 적용되고 있는 개념과 기술에 대한 이해도가 필요하다는 의미로 필자는 방송(Broadcast)에 대한 개념을 전혀 모르고 있었기에 <code>실시간 스트리밍 서비스</code>의 구조나 동작 원리와 같은 기초 단계부터 학습이 필요했다.</p>
+<br>
+<center>
+  <img src="/2020/02/13/sideproject-devlive/Streaming-Formats-Currently-Used_Q8.png">
+  <small>(실시간 스트리밍 서비스에 사용되고 있는 프로토콜 점유율, wowza.com)</small>
+</center>
+<br>
+
+<p>그렇게 실시간 스트리밍 서비스에 적용되고 있는 스트리밍 프로토콜에 대해 알아보던 중 <code>HLS(HTTP Live Streaming)</code>을 눈여겨 보게 되었다.</p>
+<p><code>HLS(HTTP Live Streaming)</code>은 2019년 통계상 실시간 스트리밍 서비스에 제일 많은 점유율을 보유하고 있는 프로토콜로써, HTTP 통신을 이용하기에 프록시와 방화벽에서 차단 당할 확률이 적고, HTML5 플레이어를 구현하는 데에 있어 유리한 부분이 있어 HLS를 택하게 되었다.</p>
+<p>그럼 <code>HLS</code>의 동작 원리에 대해 자세히 알아보도록 하자.</p>
+<h2 id="HLS-HTTP-Live-Streaming-동작-원리"><a href="#HLS-HTTP-Live-Streaming-동작-원리" class="headerlink" title="HLS(HTTP Live Streaming) 동작 원리"></a>HLS(HTTP Live Streaming) 동작 원리</h2><br>
+  <center>
+    <div style="width:80%">
+      <img src="/2020/02/13/sideproject-devlive/HLS-Streaming-Workflow.png">
+      <small>(이진 탐색 트리의 예)</small>
+    </div>
+  </center>
+<br>
+
+<p>먼저 HLS는 <code>작은 단위로 영상을 잘게 잘라놓은 &#39;*.ts&#39; 파일</code>들과 <code>영상들의 재생 목록 및 순서가 작성되어 있는 &#39;*.m3u8&#39; 파일</code>을 통해<br>실시간 스트리밍이 가능하도록 지원해준다.</p>
+<p>이를 시나리오로 설명하면 스트리머(방송인)가 방송을 시작하면 일정 단위로 방송중인 화면이 <code>.ts</code> 파일로 나뉘어 계속해서 서버에 저장된다.</p>
+<p>또한 이 영상 파일들의 목록과 재생 순서가 기록되는 <code>*.m3u8</code> 파일에 계속해서 작성된다.</p>
+<p>이후 시청자의 클라이언트는 영상 파일들과 영상 리스트를 서버로부터 내려받아 시청자에게 순차적으로 재생시켜줌으로써 <code>이어지는 영상</code>으로 방송을 볼 수 있는 것이다.</p>
+<br>
+  <center>
+    <img src="/2020/02/13/sideproject-devlive/what-is-lhls.png">
+    <small>(theoplayer.com)</small>
+  </center>
+<br>
+
+<p>위 이미지와 같이 다른 시간에서 같은 수평선으로 시간이 흘러가기에 방송이 실시간처럼 느껴지는 것이다.</p>
+<p>물론 어느 정도의 시간 차이는 존재하는데 그 이유는 위와 같은 스트리머와 시청자 간의 업로드, 다운로드 과정이 필요하기 때문이다.</p>
+<p>이 시간차 중 영상 목록 중 재생하여야 하는 영상 파일이 시청자에게 다운로드가 지연되거나 완료가 되지 않았을 경우 우리는 흔히 <code>&#39;버퍼링에 걸린다&#39;</code> 라고 표현하는 것이다.</p>
+<h2 id="Realtime-Streming-Service-devLive"><a href="#Realtime-Streming-Service-devLive" class="headerlink" title="Realtime Streming Service, devLive"></a>Realtime Streming Service, devLive</h2><p>그럼 위 방식으로 필자가 직접 개발해본 사이드 프로젝트를 엿보도록 하자.</p>
+<p><a href="https://www.youtube.com/watch?v=0vmk-YUuGH4" target="_blank" rel="noopener"><img src="https://github.com/dev4us/source_warehouse/blob/master/images/mdthumbnail.png?raw=true" alt="Video Label"></a><br><small>(위 이미지 클릭 시 영상 시청이 가능하다.)</small></p>
+<p>Video: <a href="https://www.youtube.com/watch?v=0vmk-YUuGH4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=0vmk-YUuGH4</a><br>Repo: <a href="https://github.com/dev4us/devLive" target="_blank" rel="noopener">https://github.com/dev4us/devLive</a></p>
+<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>이번 프로젝트를 진행하면서 또 다른 새로운 영역에 도전을 한 것 같아 큰 보람을 느꼈다.</p>
+<p>또한 사이드 프로젝트를 위와 같이 repository만이 아닌 영상으로 촬영하여 기록하는 방식을 처음 시도해보았고 이 또한 매우 흡족했다.</p>
+<p>앞으로는 계속해서 사이드 프로젝트에 대한 영상을 촬영하여 기록할 것 같다.</p>
+<p>하지만 당분간은 지루한 알고리즘 공부를 진행할 예정이라 잠시 이 즐거운 사이드 프로젝트 개발에는 잠시 휴식을 고해야될 것 같다.</p>
+<p>다음 시간에도 유익한 정보와 함께 사이드 프로젝트를 소개하는 시간을 갖도록 하겠다.</p>
+<p>끝</p>
+
+        </div>
+        
+            <div class="level is-size-7 is-uppercase post-tags">
+                <div class="level-start">
+                    <div class="tags">
+                        <span class="is-size-6 has-text-grey has-mr-7 tag-icon"><i class="fas fa-tag"></i></span>
+                        <a class="tag -link" href="/tags/Fullstack/">Fullstack</a><a class="tag -link" href="/tags/Graphql/">Graphql</a><a class="tag -link" href="/tags/React/">React</a><a class="tag -link" href="/tags/Realtime-Streaming/">Realtime Streaming</a><a class="tag -link" href="/tags/node/">node</a><a class="tag -link" href="/tags/side-project/">side project</a><a class="tag -link" href="/tags/toy-project/">toy project</a>
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/19/how-to-do-a-code-review/">
+                <span class="level-item">코드 리뷰에 어려움을 느끼는 이유는 무엇일까?</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-4-widescreen  has-order-3 column-right is-sticky">
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카탈로그
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#소재-파악">
+        <span class="has-mr-6">1</span>
+        <span>소재 파악</span>
+        </a></li><li>
+        <a class="is-flex" href="#HLS-HTTP-Live-Streaming-동작-원리">
+        <span class="has-mr-6">2</span>
+        <span>HLS(HTTP Live Streaming) 동작 원리</span>
+        </a></li><li>
+        <a class="is-flex" href="#Realtime-Streming-Service-devLive">
+        <span class="has-mr-6">3</span>
+        <span>Realtime Streming Service, devLive</span>
+        </a></li><li>
+        <a class="is-flex" href="#마무리">
+        <span class="has-mr-6">4</span>
+        <span>마무리</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                카테고리
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Essay/">
+            <span class="level-start">
+                <span class="level-item">Essay</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Life/">
+            <span class="level-start">
+                <span class="level-item">Life</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Programming/">
+            <span class="level-start">
+                <span class="level-item">Programming</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Programming/Data-Structure/">
+            <span class="level-start">
+                <span class="level-item">Data Structure</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Programming/Toy-Project/">
+            <span class="level-start">
+                <span class="level-item">Toy Project</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Programming/Web/">
+            <span class="level-start">
+                <span class="level-item">Web</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/blog_logo2.png" alt="Realtime Streming Service, devLive" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 dev4us&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/dev4us">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("ko");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="입력 하세요..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '포스트',
+                PAGES: '페이지',
+                CATEGORIES: '카테고리',
+                TAGS: '태그',
+                UNTITLED: '(제목없음)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+    <!-- Google AdSense start -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-3958546905118416",
+          enable_page_level_ads: true
+     });
+</script>
+    <!-- Google AdSense end -->
+
+</body>
+</html>
