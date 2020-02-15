@@ -11,19 +11,19 @@
 <title>Clone Slack! Slack-Apollo-hooks - 일상다반사</title>
 
 
-    <meta name="description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다. 해당 프로젝트를 진">
+    <meta name="description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다.">
 <meta name="keywords" content="Slack Clone,Apollo,GraphQL,fullstack,React hooks,toy project,side project">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Clone Slack! Slack-Apollo-hooks">
 <meta property="og:url" content="http://dev4us.github.io/2019/03/12/Slack-Apollo-hooks/index.html">
 <meta property="og:site_name" content="일상다반사">
-<meta property="og:description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다. 해당 프로젝트를 진">
+<meta property="og:description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다.">
 <meta property="og:locale" content="ko">
 <meta property="og:image" content="http://dev4us.github.io/2019/03/12/Slack-Apollo-hooks/thumbnail.jpeg">
-<meta property="og:updated_time" content="2020-02-15T13:54:20.397Z">
+<meta property="og:updated_time" content="2020-02-15T13:55:24.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Clone Slack! Slack-Apollo-hooks">
-<meta name="twitter:description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다. 해당 프로젝트를 진">
+<meta name="twitter:description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다.">
 <meta name="twitter:image" content="http://dev4us.github.io/2019/03/12/Slack-Apollo-hooks/thumbnail.jpeg">
 
 
@@ -195,9 +195,9 @@
             <p><small>(이전 블로그에서 포워딩해온 포스트)</small></p>
 <p>지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다.</p>
 <p>이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 <code>&#39;GraphQL&#39;</code>과 <code>&#39;React hooks&#39;</code>를 함께 사용하여 유명한 메신저 서비스인 <code>Slack</code>의 일부 기능만을 클론해보았다.</p>
-<p>해당 프로젝트를 진행하며 학습한 부분과 프로젝트에 대한 정보를 알아보자.</p>
 <a id="more"></a>
 
+<p>해당 프로젝트를 진행하며 학습한 부분과 프로젝트에 대한 정보를 알아보자.</p>
 <h2 id="React-Apollo-Hooks"><a href="#React-Apollo-Hooks" class="headerlink" title="React-Apollo-Hooks"></a>React-Apollo-Hooks</h2><p>React Hooks이 출시가 됨으로써 함수형 컴포넌트로 서비스를 개발할 수 있게 됨에 따라 GraphQL 쿼리를 이에 맞게 호출할 수 있도록 <code>React-Apollo-Hooks</code> 패키지를 사용하였다.</p>
 <p>주요 쿼리인 <code>Query, Mutation, Subscription</code> 형태에 맞는 <code>useQuery, useMutation, useSubscription</code> 함수 등이 포함되어 있으며 함수형 컴포넌트의 특성에 맞게 작성된 패키지라 계속해서 만족한 패키지 였다.</p>
 <h2 id="ReadQuery-amp-WriteQuery-on-Cache"><a href="#ReadQuery-amp-WriteQuery-on-Cache" class="headerlink" title="ReadQuery &amp; WriteQuery on Cache"></a>ReadQuery &amp; WriteQuery on Cache</h2><p>Apollo-client에서 쿼리에 대한 캐쉬를 다루는 내용을 학습했다.</p>
