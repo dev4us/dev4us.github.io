@@ -3,15 +3,50 @@
 
 
     <url>
+        <loc>http://dev4us.github.io/tags/Fullstack/</loc>
+        <lastmod>2020-02-17T13:58:53.479Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://dev4us.github.io/tags/Graphql/</loc>
+        <lastmod>2020-02-17T13:58:53.479Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://dev4us.github.io/tags/node/</loc>
+        <lastmod>2020-02-17T13:58:53.479Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://dev4us.github.io/tags/Realtime-Streaming/</loc>
+        <lastmod>2020-02-17T13:58:53.479Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://dev4us.github.io/tags/side-project/</loc>
-        <lastmod>2020-02-15T13:55:24.332Z</lastmod>
+        <lastmod>2020-02-17T13:58:53.479Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://dev4us.github.io/tags/toy-project/</loc>
-        <lastmod>2020-02-15T13:55:24.332Z</lastmod>
+        <lastmod>2020-02-17T13:58:53.479Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://dev4us.github.io/tags/React/</loc>
+        <lastmod>2020-02-17T13:58:53.479Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -54,41 +89,6 @@
     <url>
         <loc>http://dev4us.github.io/tags/Hook-player/</loc>
         <lastmod>2020-02-15T13:28:20.882Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://dev4us.github.io/tags/Fullstack/</loc>
-        <lastmod>2020-02-15T13:26:25.356Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://dev4us.github.io/tags/Graphql/</loc>
-        <lastmod>2020-02-15T13:26:25.356Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://dev4us.github.io/tags/node/</loc>
-        <lastmod>2020-02-15T13:26:25.356Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://dev4us.github.io/tags/Realtime-Streaming/</loc>
-        <lastmod>2020-02-15T13:26:25.356Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://dev4us.github.io/tags/React/</loc>
-        <lastmod>2020-02-15T13:26:25.356Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
