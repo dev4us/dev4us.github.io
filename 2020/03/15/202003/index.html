@@ -7,24 +7,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<link rel="canonical" href="http://dev4us.github.io/2019/03/12/slack-apollo-hooks/"/>
-<title>Clone Slack! Slack-Apollo-hooks - 일상다반사</title>
+<link rel="canonical" href="http://dev4us.github.io/2020/03/15/202003/"/>
+<title>This Month I Learned (2020.03) - 일상다반사</title>
 
 
-    <meta name="description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다.">
-<meta name="keywords" content="Slack Clone,Apollo,GraphQL,fullstack,React hooks,toy project,side project">
+    <meta name="description" content="그동안 개발에 대해 공부한 내용을 정리하고 싶은 욕심이 있었다. 요새 트렌드인 TIL(Today I learned)은 매일 작성하기에 부담이 되고 블로그에는 도배가 될 것 같아 필자는 TMIL(This Month I Learned)라는 제목으로 포스트를 작성해보려 한다. 한 달 내 관심있게 읽은 포스트나 학습한 내용, 참여한 개발 관련 컨퍼런스에 대해 간단">
+<meta name="keywords" content="TMIL,2020.03.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Clone Slack! Slack-Apollo-hooks">
-<meta property="og:url" content="http://dev4us.github.io/2019/03/12/Slack-Apollo-hooks/index.html">
+<meta property="og:title" content="This Month I Learned (2020.03)">
+<meta property="og:url" content="http://dev4us.github.io/2020/03/15/202003/index.html">
 <meta property="og:site_name" content="일상다반사">
-<meta property="og:description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다.">
+<meta property="og:description" content="그동안 개발에 대해 공부한 내용을 정리하고 싶은 욕심이 있었다. 요새 트렌드인 TIL(Today I learned)은 매일 작성하기에 부담이 되고 블로그에는 도배가 될 것 같아 필자는 TMIL(This Month I Learned)라는 제목으로 포스트를 작성해보려 한다. 한 달 내 관심있게 읽은 포스트나 학습한 내용, 참여한 개발 관련 컨퍼런스에 대해 간단">
 <meta property="og:locale" content="ko">
-<meta property="og:image" content="http://dev4us.github.io/2019/03/12/Slack-Apollo-hooks/thumbnail.jpeg">
-<meta property="og:updated_time" content="2020-02-15T13:55:24.332Z">
+<meta property="og:image" content="http://dev4us.github.io/2020/03/15/202003/202003.png">
+<meta property="og:updated_time" content="2020-03-21T06:22:57.396Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Clone Slack! Slack-Apollo-hooks">
-<meta name="twitter:description" content="(이전 블로그에서 포워딩해온 포스트) 지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다. 이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 &amp;#39;GraphQL&amp;#39;과 &amp;#39;React hooks&amp;#39;를 함께 사용하여 유명한 메신저 서비스인 Slack의 일부 기능만을 클론해보았다.">
-<meta name="twitter:image" content="http://dev4us.github.io/2019/03/12/Slack-Apollo-hooks/thumbnail.jpeg">
+<meta name="twitter:title" content="This Month I Learned (2020.03)">
+<meta name="twitter:description" content="그동안 개발에 대해 공부한 내용을 정리하고 싶은 욕심이 있었다. 요새 트렌드인 TIL(Today I learned)은 매일 작성하기에 부담이 되고 블로그에는 도배가 될 것 같아 필자는 TMIL(This Month I Learned)라는 제목으로 포스트를 작성해보려 한다. 한 달 내 관심있게 읽은 포스트나 학습한 내용, 참여한 개발 관련 컨퍼런스에 대해 간단">
+<meta name="twitter:image" content="http://dev4us.github.io/2020/03/15/202003/202003.png">
 
 
 
@@ -103,7 +103,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/blog_logo.png" alt="Clone Slack! Slack-Apollo-hooks" height="28">
+                <img src="/images/blog_logo.png" alt="This Month I Learned (2020.03)" height="28">
             
             </a>
         </div>
@@ -161,7 +161,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/2019/03/12/Slack-Apollo-hooks/thumbnail.jpeg" alt="Clone Slack! Slack-Apollo-hooks">
+            <img class="thumbnail" src="/2020/03/15/202003/202003.png" alt="This Month I Learned (2020.03)">
         </span>
     </div>
     
@@ -169,17 +169,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-03-12T12:10:25.000Z">2019-03-12</time>
+                <time class="level-item has-text-grey" datetime="2020-03-14T16:23:22.000Z">2020-03-15</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Programming/">Programming</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Programming/Toy-Project/">Toy Project</a>
+                <a class="has-link-grey -link" href="/categories/TMIL/">TMIL</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/TMIL/2020/">2020</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4분 소요 예정 (포스트 내 567 단어)
+                    8분 소요 예정 (포스트 내 1144 단어)
                 </span>
                 
                 
@@ -188,32 +188,51 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <innerTitle class="innerTitle">Clone Slack! Slack-Apollo-hooks</innerTitle>
+                <innerTitle class="innerTitle">This Month I Learned (2020.03)</innerTitle>
             
         </h1>
         <div class="content">
-            <p><small>(이전 블로그에서 포워딩해온 포스트)</small></p>
-<p>지난 포스트에서 언급한 듯이 React Hooks이 정식 릴리즈되었다.</p>
-<p>이후 계속해서 훅에 대한 공부를 진행하기 위해 요즈음 제일 애정을 갖고 있는 <code>&#39;GraphQL&#39;</code>과 <code>&#39;React hooks&#39;</code>를 함께 사용하여 유명한 메신저 서비스인 <code>Slack</code>의 일부 기능만을 클론해보았다.</p>
+            <p>그동안 개발에 대해 공부한 내용을 정리하고 싶은 욕심이 있었다.</p>
+<p>요새 트렌드인 <strong>TIL(Today I learned)</strong>은 매일 작성하기에 부담이 되고 블로그에는 도배가 될 것 같아 필자는 <strong>TMIL(This Month I Learned)</strong>라는 제목으로 포스트를 작성해보려 한다.</p>
+<p>한 달 내 관심있게 읽은 포스트나 학습한 내용, 참여한 개발 관련 컨퍼런스에 대해 간단하게 정리하여 리마인드를 하기 위한 용도로 작성할 예정이다.</p>
 <a id="more"></a>
 
-<p>해당 프로젝트를 진행하며 학습한 부분과 프로젝트에 대한 정보를 알아보자.</p>
-<h2 id="React-Apollo-Hooks"><a href="#React-Apollo-Hooks" class="headerlink" title="React-Apollo-Hooks"></a>React-Apollo-Hooks</h2><p>React Hooks이 출시가 됨으로써 함수형 컴포넌트로 서비스를 개발할 수 있게 됨에 따라 GraphQL 쿼리를 이에 맞게 호출할 수 있도록 <code>React-Apollo-Hooks</code> 패키지를 사용하였다.</p>
-<p>주요 쿼리인 <code>Query, Mutation, Subscription</code> 형태에 맞는 <code>useQuery, useMutation, useSubscription</code> 함수 등이 포함되어 있으며 함수형 컴포넌트의 특성에 맞게 작성된 패키지라 계속해서 만족한 패키지 였다.</p>
-<h2 id="ReadQuery-amp-WriteQuery-on-Cache"><a href="#ReadQuery-amp-WriteQuery-on-Cache" class="headerlink" title="ReadQuery &amp; WriteQuery on Cache"></a>ReadQuery &amp; WriteQuery on Cache</h2><p>Apollo-client에서 쿼리에 대한 캐쉬를 다루는 내용을 학습했다.</p>
-<p>주로 Subscription 이후 변경되는 데이터에 대해 캐쉬를 통한 동기화를 하는 부분에 적용해보았다.</p>
-<h2 id="ElephantSQL"><a href="#ElephantSQL" class="headerlink" title="ElephantSQL"></a>ElephantSQL</h2><p>본래 해당 사이드 프로젝트는 BE &amp; FE 모두 가벼운 레벨로 배포하려 하였으나 Database 지원에 어려움을 겪어 관련 정보를 찾던 중 <code>PostgreSQL</code>을 클라우드 환경에서 지원해주는 <code>ElephantSQL</code>에 대한 정보를 얻어 적용해보았지만 너무나도 좋지 않은 성능에 곧바로 다른 대책을 준비했다.</p>
-<h2 id="마무리"><a href="#마무리" class="headerlink" title="마무리"></a>마무리</h2><p>결국 BE &amp; FE 에 대한 내용은 Github 에만 남겨두기로 하고 대신 조금 기능이 덜어내 누구든 쉽게 사이드 프로젝트를 체험해볼 수 있도록 Database 없이 LocalStorage에 데이터를 저장하여 이용이 가능한 로컬 프로젝트를 하나 더 개발하였다.</p>
-<br>
-  <center>
-    <img src="/2019/03/12/Slack-Apollo-hooks/sample.png">
-    <small>(Screenshot)</small>
-  </center>
+<h2 id="1-React-Native"><a href="#1-React-Native" class="headerlink" title="1. React Native"></a>1. React Native</h2><br>
+<center>
+  <img src="/2020/03/15/202003/RN.png">
+</center>
 <br>
 
-<p>체험해보기 (Local Ver): <a href="https://dev4us.github.io/slack-apollo-hooks_frontend_local/">https://dev4us.github.io/slack-apollo-hooks_frontend_local/</a></p>
-<p>BE Repo: <a href="https://github.com/dev4us/slack-apollo-hooks_backend" target="_blank" rel="noopener">https://github.com/dev4us/slack-apollo-hooks_backend</a><br>FE Repo: <a href="https://github.com/dev4us/slack-apollo-hooks_frontend" target="_blank" rel="noopener">https://github.com/dev4us/slack-apollo-hooks_frontend</a><br>Local Ver Repo: <a href="https://github.com/dev4us/slack-apollo-hooks_frontend_local" target="_blank" rel="noopener">https://github.com/dev4us/slack-apollo-hooks_frontend_local</a></p>
-<p>끝</p>
+<p>웹 서비스를 만드는데 사용되는 React 문법을 기반으로 앱 개발이 가능하다는 매력을 가진 <code>&#39;React Native&#39;</code>에 대해 학습하고 예제 앱을 하나 만들어보는 시간을 가졌다.</p>
+<p>여러 포스트와 영상을 참고하여 <code>&#39;The Movie DB&#39;</code> API를 활용한 인기 영화, TV 프로그램을 소개하는 <code>&#39;devFlix&#39;</code> 라는 이름의 앱을 개발해보았다.</p>
+<p>관련 내용은 아래 저장소에 기록되어 있다.</p>
+<p>꼭 한번은 사이드 프로젝트로 앱을 개발해보는 기회를 가져야겠다.</p>
+<p><strong>영화,TV 정보 제공 앱, devFlix (사이드 프로젝트)</strong><br><a href="https://github.com/dev4us/devflix_app" target="_blank" rel="noopener">https://github.com/dev4us/devflix_app</a></p>
+<h2 id="2-Dev-Matching-in-Programmers"><a href="#2-Dev-Matching-in-Programmers" class="headerlink" title="2. Dev-Matching in Programmers"></a>2. Dev-Matching in Programmers</h2><br>
+<center>
+  <img src="/2020/03/15/202003/devMatching.png">
+</center>
+<br>
+
+<p>동료 개발자로부터 새로운 개념의 코딩 테스트를 소개 받은 바가 있어 3월 14일(토) <strong>Dev-Matching</strong> 에 응시하게 되었다.</p>
+<p>워낙 코딩 테스트로 유명한 <a href="https://programmers.co.kr/" target="_blank" rel="noopener">Programmers</a>에서 주최를 한 시험이기에 직접 응시장에 찾아갈 필요 없이 집에서 웹 IDE 환경을 통해 오후 1시부터 오후 5시까지 4시간에 걸쳐 시험을 치뤘다.</p>
+<p>주제는 <strong>귀여운 고양이들의 사진을 검색 및 제공해주는 서비스</strong>를 사이드 프로젝트로 운영하고 있는 개발자가 갑자기 몰려드는 이용자의 수에 놀라 갑자기 본인의 서비스를 추가 개발, 유지 보수를 제한 시간 내에 해야 하는 내용이었다. <small>(상당히 몰입된다..)</small></p>
+<p>마크업, 스타일 정의에 대한 기본적인 퍼블리싱 요소부터 상태 관리, 재렌더링, 데이터 통신의 기본적인 개념까지 다양한 부분의 평가 문제들이 존재했다.</p>
+<p>응시를 하면서 느낀 부분은 기존 <strong>알고리즘 위주의 수학 문제를 푸는 듯한 코딩 테스트</strong>로 평가하는 방식이 아니라 <strong>추가 기능 개발, 수정이 필요한 버그의 수정 가능 여부, 서비스를 위한 창작적인 아이디어</strong>를 기준으로 <strong>개발자를 개발로 평가할 수 있는 시험, 실무적인 경험과 노하우가 반영 되는 코딩 테스트</strong>와 같다는 느낌을 많이 받았다.</p>
+<p>필자는 위와 같은 시험 방식에 호감을 느꼈으며, 프로그래머스에서 진행하는 같은 방식의 테스트는 계속해서 응시할 계획이다.</p>
+<h2 id="3-Crawling-using-JS-puppeteer"><a href="#3-Crawling-using-JS-puppeteer" class="headerlink" title="3. Crawling using JS (puppeteer)"></a>3. Crawling using JS (puppeteer)</h2><br>
+<center>
+  <img src="/2020/03/15/202003/puppeteer.png">
+</center>
+<br>
+
+<p>최근 사이드 프로젝트 주제를 물색하다가 <strong>알구몬, 캐치딜</strong>과 같은 크롤링 정보 제공 서비스에 눈길이 간 적이 있다.</p>
+<p>다양한 구매 정보 공유 커뮤니티, e커머스 사이트를 크롤링하여 유저들에게 제공하는 서비스로써 <strong>서비스 컨텐츠가 자체 수급되는</strong> 훌륭한 사이드 프로젝트 주제라고 생각했다.</p>
+<p>그렇게 크롤링에 대한 학습을 시작했다.</p>
+<p>크롤링 라이브러리 1순위는 당연 <strong>Python의 beautifulSoup</strong>라고 생각하고 있었지만, 이번 학습을 통해 <strong>Node.js</strong> 환경에서 <strong>Headless 방식</strong>으로 크롤링을 할 수 있는 <strong>puppeteer</strong>가 개발되었다는 소식을 접했다.</p>
+<p>이후에 학습한 내용은 아래 기재한 저장소에 계속해서 예제를 작성해나가며 공부하고 있다. 또한 <strong>puppeteer</strong>에 대한 포스트를 블로그에 별도로 작성해볼 예정이다.</p>
+<p><strong>크롤링 학습 예제</strong><br><a href="https://github.com/dev4us/how-to-use-puppeteer" target="_blank" rel="noopener">https://github.com/dev4us/how-to-use-puppeteer</a></p>
+<p><strong>참고 포스트</strong><br><a href="https://yangeok.github.io/node.js/2019/09/09/puppeteer-crawler-pre.html" target="_blank" rel="noopener">puppeteer로 크롤러 만들기</a><br><a href="https://skyksit.tistory.com/103" target="_blank" rel="noopener">서버 리스 네이버 검색어 가져오기</a><br><a href="https://devahea.github.io/2019/04/13/Headless-Browser란/" target="_blank" rel="noopener">Headless Browser란?</a></p>
 
         </div>
         
@@ -221,7 +240,7 @@
                 <div class="level-start">
                     <div class="tags">
                         <span class="is-size-6 has-text-grey has-mr-7 tag-icon"><i class="fas fa-tag"></i></span>
-                        <a class="tag -link" href="/tags/Apollo/">Apollo</a><a class="tag -link" href="/tags/GraphQL/">GraphQL</a><a class="tag -link" href="/tags/React-hooks/">React hooks</a><a class="tag -link" href="/tags/Slack-Clone/">Slack Clone</a><a class="tag -link" href="/tags/fullstack/">fullstack</a><a class="tag -link" href="/tags/side-project/">side project</a><a class="tag -link" href="/tags/toy-project/">toy project</a>
+                        <a class="tag -link" href="/tags/2020-03/">2020.03.</a><a class="tag -link" href="/tags/TMIL/">TMIL</a>
                     </div>
                 </div>
             </div>
@@ -238,17 +257,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/09/13/why-did-i-move/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">내가 블로그를 이전한 이유</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/01/hookPlayer/">
-                <span class="level-item">Welcome Hook, HookPlayer</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/02/15/sideproject-devlive/">
+                <span class="level-item">Realtime Streming Service, devLive</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -274,21 +286,17 @@
                 카탈로그
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#React-Apollo-Hooks">
+        <a class="is-flex" href="#1-React-Native">
         <span class="has-mr-6">1</span>
-        <span>React-Apollo-Hooks</span>
+        <span>1. React Native</span>
         </a></li><li>
-        <a class="is-flex" href="#ReadQuery-amp-WriteQuery-on-Cache">
+        <a class="is-flex" href="#2-Dev-Matching-in-Programmers">
         <span class="has-mr-6">2</span>
-        <span>ReadQuery &amp; WriteQuery on Cache</span>
+        <span>2. Dev-Matching in Programmers</span>
         </a></li><li>
-        <a class="is-flex" href="#ElephantSQL">
+        <a class="is-flex" href="#3-Crawling-using-JS-puppeteer">
         <span class="has-mr-6">3</span>
-        <span>ElephantSQL</span>
-        </a></li><li>
-        <a class="is-flex" href="#마무리">
-        <span class="has-mr-6">4</span>
-        <span>마무리</span>
+        <span>3. Crawling using JS (puppeteer)</span>
         </a></li></ul>
         </div>
     </div>
@@ -385,7 +393,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/blog_logo.png" alt="Clone Slack! Slack-Apollo-hooks" height="28">
+                    <img src="/images/blog_logo.png" alt="This Month I Learned (2020.03)" height="28">
                 
                 </a>
                 <p class="is-size-7">

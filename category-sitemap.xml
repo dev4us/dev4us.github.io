@@ -8,6 +8,20 @@
     </url>
 
     <url>
+        <loc>http://dev4us.github.io/categories/TMIL/2020/</loc>
+        <lastmod>2020-03-21T06:22:57.396Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://dev4us.github.io/categories/TMIL/</loc>
+        <lastmod>2020-03-21T06:22:57.396Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://dev4us.github.io/categories/Programming/Toy-Project/</loc>
         <lastmod>2020-03-20T13:05:11.470Z</lastmod>
         <changefreq>weekly</changefreq>
